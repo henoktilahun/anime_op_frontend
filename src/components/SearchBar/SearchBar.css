@@ -1,0 +1,13 @@
+.searchbar {
+    width: 100%;
+    height: 200px;
+    background-color: aliceblue;
+}
+
+.searchbar__containter {
+    justify-self: center;
+}
+
+/* .searchbar-input {
+    margin: 0 auto;
+} */
