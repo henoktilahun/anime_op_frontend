@@ -1,0 +1,14 @@
+.card {
+  width: 200px;
+  /* height: 400px; */
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  border: 1px;
+  color: rgba(0, 0, 0, 0.3);
+  background-color: aqua;
+}
+
+.anime-card__image {
+  width: 100%;
+}
