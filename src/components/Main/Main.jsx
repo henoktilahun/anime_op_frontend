@@ -1,19 +1,21 @@
 import SearchBar from "../SearchBar/SearchBar";
-import { animethemes } from "../../utils/constants";
+//import { animethemes } from "../../utils/constants";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import "./Main.css";
 
-function Main() {
+function Main({ animeThemes, preloader }) {
   return (
     <main>
       <SearchBar />
+      {preloader && <div>Loading...</div>}
       <section className="anime-cards">
-        {animethemes.map((theme) => (
+        {animeThemes.map((item) => (
           <AnimeCard
-            key={theme.id}
-            anime={theme.anime}
-            song={theme.song}
-            image={theme.anime.images[0].link} //uses first image
+            id={item.id}
+            anime={item.anime}
+            song={item.song}
+            image={item.anime.images[0].link} //uses first image
+            type={item.type}
           />
         ))}
       </section>
