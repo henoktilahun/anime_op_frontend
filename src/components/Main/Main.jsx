@@ -2,8 +2,9 @@ import SearchBar from "../SearchBar/SearchBar";
 //import { animethemes } from "../../utils/constants";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import "./Main.css";
+import Pagination from "../Pagination/Pagination";
 
-function Main({ animeThemes, preloader }) {
+function Main({ animeThemes, preloader, currentPage, setCurrnetPage }) {
   return (
     <main>
       <SearchBar />
@@ -19,6 +20,7 @@ function Main({ animeThemes, preloader }) {
           />
         ))}
       </section>
+      <Pagination currentPage={currentPage} setCurrnetPage={setCurrnetPage}/>
     </main>
   );
 }

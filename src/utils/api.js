@@ -5,9 +5,9 @@ export function checkResponse(res) {
 }
 
 //get anime thems (openings and endings)
-function getAnimeThemes() {
+function getAnimeThemes(page) {
   return fetch(
-    `${baseUrl}/animetheme?include=anime,anime.images,song,song.artists,animethemeentries.videos`
+    `${baseUrl}/animetheme?include=anime,anime.images,song,song.artists,animethemeentries.videos&page[number]=${page}`
   ).then(checkResponse);
 }
 

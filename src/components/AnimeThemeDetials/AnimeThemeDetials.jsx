@@ -23,6 +23,7 @@ function AnimeThemeDetials({ animeThemes, preloader }) {
           className="anime-details__image"
           src={animeThemes[id - 1].anime.images[0].link}
           alt={`${animeThemes[id - 1].anime.name} Cover`}
+          //song?.artists?.[0]?.name
         />
         <video controls>
           <source
@@ -33,7 +34,7 @@ function AnimeThemeDetials({ animeThemes, preloader }) {
       </div>
       <div className="anime-details__details">
         <p>{animeThemes[id - 1].anime.synopsis}</p>
-        <p>Artist: {animeThemes[id - 1].song.artists[0].name}</p>
+        <p>Artist: {animeThemes?.[id - 1]?.song?.artists?.[0]?.name || "Unknown Artist"}</p>
         <p>Anime: {animeThemes[id - 1].anime.name}</p>
         <p>Season: {animeThemes[id - 1].anime.season}</p>
       </div>

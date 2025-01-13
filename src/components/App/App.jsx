@@ -8,13 +8,15 @@ import AnimeThemeDetials from "../AnimeThemeDetials/AnimeThemeDetials";
 
 function App() {
   const [animeThemes, setAnimeThemes] = useState([]);
+  const [currentPage, setCurrnetPage] = useState(1);
   const [preloader, setPreloader] = useState(true);
 
   useEffect(() => {
-    getAnimeThemes()
+    getAnimeThemes(currentPage)
       .then((res) => {
         setAnimeThemes(res.animethemes);
-        //console.log(res.animethemes, "res");
+        setCurrnetPage(res.meta.current_page);
+        console.log(res, "res");
       })
       .catch((err) => {
         console.log(err, "err");
@@ -22,7 +24,7 @@ function App() {
       .finally(() => {
         setPreloader(false);
       });
-  }, []);
+  }, [currentPage]);
 
   console.log(animeThemes, "animeThemes");
 
@@ -33,7 +35,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Main animeThemes={animeThemes} preloader={preloader} />}
+            element={<Main animeThemes={animeThemes} preloader={preloader} currentPage={currentPage} setCurrnetPage={setCurrnetPage} />}
           />
           <Route
             path="/:id"
