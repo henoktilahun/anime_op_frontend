@@ -4,9 +4,15 @@ import { useParams } from "react-router-dom";
 function AnimeThemeDetials({ animeThemes, preloader }) {
   const router = useParams();
   const { id } = router;
+  const backgroundUrl = animeThemes[id - 1].anime.images[0].link;
 
   return (
-    <div className="anime-details__container">
+    <div
+      className="anime-details__container"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${backgroundUrl})`,
+      }}
+    >
       {preloader && <div>Loading...</div>}
       <div>
         <h3>{animeThemes[id - 1].song.title}</h3>

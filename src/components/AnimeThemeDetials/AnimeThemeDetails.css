@@ -1,3 +1,11 @@
+.anime-details__container {
+  /* background: linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+}
+
 .anime-details__image {
   width: 350px;
 }
