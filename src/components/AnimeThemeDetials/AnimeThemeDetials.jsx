@@ -1,45 +1,72 @@
 import "./AnimeThemeDetails.css";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getAnimeThemesById } from "../../utils/api";
 
-function AnimeThemeDetials({ animeThemes, preloader }) {
+function AnimeThemeDetails() {
   const router = useParams();
   const { id } = router;
-  const backgroundUrl = animeThemes[id - 1].anime.images[0].link;
+  const [preloader, setPreloader] = useState(true);
+  const [details, setDetails] = useState({});
+
+  useEffect(() => {
+    getAnimeThemesById(id)
+      .then((res) => {
+        setDetails(res);
+        //console.log(res, "animethemedetails res");
+      })
+      .catch((err) => {
+        console.log(err, "err");
+      })
+      .finally(() => {
+        setPreloader(false);
+      });
+  }, [id]);
+
+  //console.log(details.animetheme?.anime?.images[0]?.link, "detials");
+  const imgSource = details.animetheme?.anime?.images[0]?.link;
+  const songTitle = details.animetheme?.song?.title;
+  const animeYear = details.animetheme?.anime?.year;
+  const videoSource = details.animetheme?.animethemeentries[0]?.videos[0]?.link;
+  const animeSynopsis = details.animetheme?.anime?.synopsis;
+  const songArtist = details.animetheme?.song?.artists[0]?.name;
+  const anime = details.animetheme?.anime?.name;
+  const animeSeason = details.animetheme?.anime?.season;
+  //const songArtist = details.animetheme?.song?.artists?.[0]?.name
+
+  console.log(videoSource);
 
   return (
     <div
       className="anime-details__container"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${backgroundUrl})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${imgSource})`,
       }}
     >
       {preloader && <div>Loading...</div>}
       <div>
-        <h3>{animeThemes[id - 1].song.title}</h3>
-        <p>{animeThemes[id - 1].anime.year}</p>
+        <h3>{songTitle}</h3>
+        <p>{animeYear}</p>
       </div>
       <div>
         <img
           className="anime-details__image"
-          src={animeThemes[id - 1].anime.images[0].link}
-          alt={`${animeThemes[id - 1].anime.name} Cover`}
+          src={imgSource}
+          alt={`${anime} Cover`}
           //song?.artists?.[0]?.name
         />
         <video controls>
-          <source
-            src={animeThemes[id - 1].animethemeentries[0].videos[0].link}
-            type="video/webm"
-          ></source>
+          <source src={videoSource} type="video/webm"></source>
         </video>
       </div>
       <div className="anime-details__details">
-        <p>{animeThemes[id - 1].anime.synopsis}</p>
-        <p>Artist: {animeThemes?.[id - 1]?.song?.artists?.[0]?.name || "Unknown Artist"}</p>
-        <p>Anime: {animeThemes[id - 1].anime.name}</p>
-        <p>Season: {animeThemes[id - 1].anime.season}</p>
+        <p>{animeSynopsis}</p>
+        <p>Artist: {songArtist || "Unknown Artist"}</p>
+        <p>Anime: {anime}</p>
+        <p>Season: {animeSeason}</p>
       </div>
     </div>
   );
 }
 
-export default AnimeThemeDetials;
+export default AnimeThemeDetails;

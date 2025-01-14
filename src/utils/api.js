@@ -11,12 +11,12 @@ function getAnimeThemes(page) {
   ).then(checkResponse);
 }
 
-// function getAnimeThemes() {
-//   const { animeThemes } = fetch(
-//     `${baseUrl}/animetheme?include=anime,anime.images`
-//   ).then(checkResponse);
+//https://api.animethemes.moe/animetheme/18?include=anime,anime.images,song
 
-//   return animeThemes;
-// }
+function getAnimeThemesById(id) {
+  return fetch(
+    `${baseUrl}/animetheme/${id}?include=anime,anime.images,song,song.artists,animethemeentries.videos`
+  ).then(checkResponse);
+}
 
-export { getAnimeThemes };
+export { getAnimeThemes, getAnimeThemesById };

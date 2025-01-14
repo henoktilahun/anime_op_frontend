@@ -35,13 +35,20 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Main animeThemes={animeThemes} preloader={preloader} currentPage={currentPage} setCurrnetPage={setCurrnetPage} />}
+            element={
+              <Main
+                animeThemes={animeThemes}
+                preloader={preloader}
+                currentPage={currentPage}
+                setCurrnetPage={setCurrnetPage}
+              />
+            }
           />
           <Route
             path="/:id"
             element={
               <AnimeThemeDetials
-                animeThemes={animeThemes}
+                // animeThemes={animeThemes}
                 preloader={preloader}
               />
             }
