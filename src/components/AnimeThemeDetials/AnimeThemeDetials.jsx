@@ -10,6 +10,7 @@ function AnimeThemeDetails() {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
+    if (id) {
     getAnimeThemesById(id)
       .then((res) => {
         setDetails(res);
@@ -21,6 +22,7 @@ function AnimeThemeDetails() {
       .finally(() => {
         setPreloader(false);
       });
+    }
   }, [id]);
 
   //console.log(details.animetheme?.anime?.images[0]?.link, "detials");
@@ -33,6 +35,7 @@ function AnimeThemeDetails() {
   const anime = details.animetheme?.anime?.name;
   const animeSeason = details.animetheme?.anime?.season;
   //const songArtist = details.animetheme?.song?.artists?.[0]?.name
+  //const sanitizedVideoSource = encodeURI(videoSource?.trim());
 
   console.log(videoSource);
 
@@ -55,9 +58,10 @@ function AnimeThemeDetails() {
           alt={`${anime} Cover`}
           //song?.artists?.[0]?.name
         />
-        <video controls>
-          <source src={videoSource} type="video/webm"></source>
-        </video>
+        {/* <video width="750" height="500" controls>
+          <source src={videoSource} type="video/webm"/>
+        </video> */}
+        <video controls src={videoSource}></video>
       </div>
       <div className="anime-details__details">
         <p>{animeSynopsis}</p>

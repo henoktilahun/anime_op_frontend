@@ -26,7 +26,7 @@ function App() {
       });
   }, [currentPage]);
 
-  console.log(animeThemes, "animeThemes");
+  //console.log(animeThemes, "animeThemes");
 
   return (
     <div className="page">
