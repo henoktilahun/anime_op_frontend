@@ -11,17 +11,17 @@ function AnimeThemeDetails() {
 
   useEffect(() => {
     if (id) {
-    getAnimeThemesById(id)
-      .then((res) => {
-        setDetails(res);
-        //console.log(res, "animethemedetails res");
-      })
-      .catch((err) => {
-        console.log(err, "err");
-      })
-      .finally(() => {
-        setPreloader(false);
-      });
+      getAnimeThemesById(id)
+        .then((res) => {
+          setDetails(res);
+          //console.log(res, "animethemedetails res");
+        })
+        .catch((err) => {
+          console.log(err, "err");
+        })
+        .finally(() => {
+          setPreloader(false);
+        });
     }
   }, [id]);
 
@@ -37,7 +37,7 @@ function AnimeThemeDetails() {
   //const songArtist = details.animetheme?.song?.artists?.[0]?.name
   //const sanitizedVideoSource = encodeURI(videoSource?.trim());
 
-  console.log(videoSource);
+  //console.log(videoSource);
 
   return (
     <div
@@ -61,7 +61,7 @@ function AnimeThemeDetails() {
         {/* <video width="750" height="500" controls>
           <source src={videoSource} type="video/webm"/>
         </video> */}
-        <video controls src={videoSource}></video>
+        <video controls src={videoSource} width="720" height="500"></video>
       </div>
       <div className="anime-details__details">
         <p>{animeSynopsis}</p>
