@@ -1,0 +1,27 @@
+
+
+/* button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .on {
+    color: #ffd900;
+  }
+  .off {
+    color: #ffd90073;
+  } */
+
+  .rating-on {
+    cursor: pointer;
+    color: orange;
+  }
+
+  .rating-off {
+    cursor: pointer;
+  }
+/* 
+  .rating-star {
+    size: 100px;
+  } */

@@ -2,12 +2,15 @@ import "./AnimeThemeDetails.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAnimeThemesById } from "../../utils/api";
+import Rating from "../Rating/Rating";
 
 function AnimeThemeDetails() {
   const router = useParams();
   const { id } = router;
   const [preloader, setPreloader] = useState(true);
   const [details, setDetails] = useState({});
+
+  const defaultRating = localStorage.getItem("sticky_rating") //only for local testing don't put in PROD
 
   useEffect(() => {
     if (id) {
@@ -48,9 +51,15 @@ function AnimeThemeDetails() {
     >
       {preloader && <div>Loading...</div>}
       <div>
+        <div>
         <h3>{songTitle}</h3>
         <p>{animeYear}</p>
+        </div>
+        <div>
+          <Rating defaultRating={defaultRating} />
+        </div>
       </div>
+      
       <div>
         <img
           className="anime-details__image"
@@ -61,7 +70,7 @@ function AnimeThemeDetails() {
         {/* <video width="750" height="500" controls>
           <source src={videoSource} type="video/webm"/>
         </video> */}
-        <video controls src={videoSource} width="720" height="500"></video>
+        <video controls src={videoSource} width="750" height="400"></video>
       </div>
       <div className="anime-details__details">
         <p>{animeSynopsis}</p>
