@@ -5,6 +5,19 @@
   color: white;
 }
 
+.anime-detials__heading-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .anime-details__image {
   width: 350px;
+}
+
+.anime-details__title {
+  margin: 0;
+}
+
+.anime-details__year {
+  margin: 0;
 }

@@ -20,7 +20,7 @@ function Main({ animeThemes, preloader, currentPage, setCurrnetPage }) {
           />
         ))}
       </section>
-      <Pagination currentPage={currentPage} setCurrnetPage={setCurrnetPage}/>
+      <Pagination currentPage={currentPage} setCurrnetPage={setCurrnetPage} />
     </main>
   );
 }

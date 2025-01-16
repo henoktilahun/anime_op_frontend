@@ -7,3 +7,17 @@
   display: flex;
   justify-content: space-between;
 }
+
+.header__nav-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header__nav-button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px;
+}

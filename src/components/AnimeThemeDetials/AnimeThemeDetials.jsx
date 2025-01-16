@@ -10,7 +10,7 @@ function AnimeThemeDetails() {
   const [preloader, setPreloader] = useState(true);
   const [details, setDetails] = useState({});
 
-  const defaultRating = localStorage.getItem("sticky_rating") //only for local testing don't put in PROD
+  const defaultRating = localStorage.getItem("sticky_rating"); //only for local testing don't put in PROD
 
   useEffect(() => {
     if (id) {
@@ -50,16 +50,16 @@ function AnimeThemeDetails() {
       }}
     >
       {preloader && <div>Loading...</div>}
-      <div>
-        <div>
-        <h3>{songTitle}</h3>
-        <p>{animeYear}</p>
+      <div className="anime-detials__heading-container">
+        <div className="anime-detials__heading">
+          <h3 className="anime-details__title">{songTitle}</h3>
+          <p className="anime-details__year">{animeYear}</p>
         </div>
         <div>
           <Rating defaultRating={defaultRating} />
         </div>
       </div>
-      
+
       <div>
         <img
           className="anime-details__image"

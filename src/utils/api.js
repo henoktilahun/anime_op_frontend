@@ -19,4 +19,10 @@ function getAnimeThemesById(id) {
   ).then(checkResponse);
 }
 
-export { getAnimeThemes, getAnimeThemesById };
+function getAnimeThemesByAnimeName(animeName) {
+  return fetch(`${baseUrl}/anime?q=${animeName}&include=animethemes.song`).then(
+    checkResponse
+  );
+}
+
+export { getAnimeThemes, getAnimeThemesById, getAnimeThemesByAnimeName };
