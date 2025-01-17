@@ -3,8 +3,27 @@ import SearchBar from "../SearchBar/SearchBar";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import "./Main.css";
 import Pagination from "../Pagination/Pagination";
+import { getAnimeThemesByAnimeName } from "../../utils/api";
 
 function Main({ animeThemes, preloader, currentPage, setCurrnetPage }) {
+  // const [filteredAnimeThemes, setFilteredAnimeThemes] = useState([]);
+
+  // useEffect(() => {
+  //   if (id) {
+  //     getAnimeThemesByAnimeName(animeName)
+  //       .then((res) => {
+  //         setDetails(res);
+  //         //console.log(res, "animethemedetails res");
+  //       })
+  //       .catch((err) => {
+  //         console.log(err, "err");
+  //       })
+  //       .finally(() => {
+  //         setPreloader(false);
+  //       });
+  //   }
+  // }, [id]);
+
   return (
     <main>
       <SearchBar />
