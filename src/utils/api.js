@@ -19,10 +19,16 @@ function getAnimeThemesById(id) {
   ).then(checkResponse);
 }
 
-function getAnimeThemesByAnimeName(animeName) {
-  return fetch(`${baseUrl}/anime?q=${animeName}&include=animethemes.song`).then(
-    checkResponse
-  );
+// function getAnimeThemesByAnimeName(animeName) {
+//   return fetch(`${baseUrl}/anime?q=${animeName}&include=animethemes.song`).then(
+//     checkResponse
+//   );
+// }
+
+function getAnimeThemesByAnimeName(animeName, page) {
+  return fetch(
+    `${baseUrl}/animetheme?q=${animeName}&include=anime,anime.images,song,song.artists,animethemeentries.videos&page[number]=${page}`
+  ).then(checkResponse);
 }
 
 export { getAnimeThemes, getAnimeThemesById, getAnimeThemesByAnimeName };

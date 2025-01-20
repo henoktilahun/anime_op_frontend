@@ -4,32 +4,53 @@ import AnimeCard from "../AnimeCard/AnimeCard";
 import "./Main.css";
 import Pagination from "../Pagination/Pagination";
 import { getAnimeThemesByAnimeName } from "../../utils/api";
+import { useEffect, useState } from "react";
 
-function Main({ animeThemes, preloader, currentPage, setCurrnetPage }) {
-  // const [filteredAnimeThemes, setFilteredAnimeThemes] = useState([]);
+function Main({
+  animeThemes,
+  preloader,
+  setPreloader,
+  currentPage,
+  setCurrnetPage,
+}) {
+  const [filteredAnimeThemes, setFilteredAnimeThemes] = useState([]);
+  const [animeName, setAnimeName] = useState("");
 
-  // useEffect(() => {
-  //   if (id) {
-  //     getAnimeThemesByAnimeName(animeName)
-  //       .then((res) => {
-  //         setDetails(res);
-  //         //console.log(res, "animethemedetails res");
-  //       })
-  //       .catch((err) => {
-  //         console.log(err, "err");
-  //       })
-  //       .finally(() => {
-  //         setPreloader(false);
-  //       });
-  //   }
-  // }, [id]);
+  useEffect(() => {
+    setFilteredAnimeThemes(animeThemes);
+  }, [animeThemes]);
+
+  const handleSearchInput = (animeNameInput) => {
+    setAnimeName(animeNameInput.target.value);
+  };
+
+  // console.log(animeThemes, "anime themes");
+  // console.log(filteredAnimeThemes, "Filtered animetheme");
+
+  useEffect(() => {
+    if (animeName !== "") {
+      getAnimeThemesByAnimeName(animeName, currentPage)
+        .then((res) => {
+          setFilteredAnimeThemes(res.animethemes);
+          setCurrnetPage(filteredAnimeThemes.meta.currentPage);
+          console.log(animeName);
+          console.log(res, "animehtemesbyname res");
+        })
+        .catch((err) => {
+          console.log(err, "err");
+        })
+        .finally(() => {
+          setPreloader(false);
+        });
+    }
+  }, [animeName, currentPage]);
 
   return (
     <main>
-      <SearchBar />
+      <SearchBar handleSearchInput={handleSearchInput} />
       {preloader && <div>Loading...</div>}
       <section className="anime-cards">
-        {animeThemes.map((item) => (
+        {filteredAnimeThemes.map((item) => (
           <AnimeCard
             id={item.id}
             anime={item.anime}

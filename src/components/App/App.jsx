@@ -15,6 +15,7 @@ function App() {
     getAnimeThemes(currentPage)
       .then((res) => {
         setAnimeThemes(res.animethemes);
+        //setAnimeThemes(res);
         setCurrnetPage(res.meta.current_page);
         console.log(res, "res");
       })
@@ -39,6 +40,7 @@ function App() {
               <Main
                 animeThemes={animeThemes}
                 preloader={preloader}
+                setPreloader={setPreloader}
                 currentPage={currentPage}
                 setCurrnetPage={setCurrnetPage}
               />

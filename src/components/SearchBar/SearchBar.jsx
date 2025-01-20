@@ -1,6 +1,6 @@
 import "./SearchBar.css";
 
-function SearchBar() {
+function SearchBar({ handleSearchInput }) {
   return (
     <section className="searchbar__container">
       <div className="searchbar">
@@ -9,7 +9,7 @@ function SearchBar() {
           className="searchbar-input"
           id="searchbar"
           placeholder="Search Here"
-          //onChange={handleEmailChange}
+          onChange={handleSearchInput}
           //value={email}
         />
       </div>
