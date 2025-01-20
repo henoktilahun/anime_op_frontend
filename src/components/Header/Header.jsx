@@ -2,15 +2,15 @@ import logo from "../../assets/logo2.png";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({resetSearch}) {
   return (
     <header className="header">
-      <Link to="/">
+      <Link to="/" onClick={resetSearch}>
         <img className="header__logo" src={logo} alt="AOP Logo" />
       </Link>
 
       <div className="header__nav-container">
-        <Link to="/">
+        <Link to="/" onClick={resetSearch}>
           <button className="header__nav-button header__home-button">
             Home
           </button>

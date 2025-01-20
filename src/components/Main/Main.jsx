@@ -15,6 +15,7 @@ function Main({
 }) {
   const [filteredAnimeThemes, setFilteredAnimeThemes] = useState([]);
   const [animeName, setAnimeName] = useState("");
+  const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
 
   useEffect(() => {
     setFilteredAnimeThemes(animeThemes);
@@ -24,17 +25,25 @@ function Main({
     setAnimeName(animeNameInput.target.value);
   };
 
+  const resetSearch = () => {
+    setAnimeName("");
+    setFilteredAnimeThemes(animeThemes);
+    setCurrentFilteredPage(1);
+    setCurrentFilteredPage(1);
+  }
+
   // console.log(animeThemes, "anime themes");
   // console.log(filteredAnimeThemes, "Filtered animetheme");
 
   useEffect(() => {
     if (animeName !== "") {
-      getAnimeThemesByAnimeName(animeName, currentPage)
+      getAnimeThemesByAnimeName(animeName, currentFilteredPage)
         .then((res) => {
           setFilteredAnimeThemes(res.animethemes);
-          setCurrnetPage(filteredAnimeThemes.meta.currentPage);
-          console.log(animeName);
-          console.log(res, "animehtemesbyname res");
+        //   console.log(res.meta.current_page, "currentpage meta")
+          setCurrentFilteredPage(res.meta.current_page);
+        //   console.log(animeName);
+        //   console.log(res, "animehtemesbyname res");
         })
         .catch((err) => {
           console.log(err, "err");
@@ -43,7 +52,7 @@ function Main({
           setPreloader(false);
         });
     }
-  }, [animeName, currentPage]);
+  }, [animeName, currentFilteredPage]);
 
   return (
     <main>
@@ -52,6 +61,7 @@ function Main({
       <section className="anime-cards">
         {filteredAnimeThemes.map((item) => (
           <AnimeCard
+            key={item.id}
             id={item.id}
             anime={item.anime}
             song={item.song}
@@ -60,7 +70,7 @@ function Main({
           />
         ))}
       </section>
-      <Pagination currentPage={currentPage} setCurrnetPage={setCurrnetPage} />
+      <Pagination currentPage={animeName ? currentFilteredPage: currentPage} setCurrnetPage={animeName ? setCurrentFilteredPage : setCurrnetPage} />
     </main>
   );
 }
