@@ -9,33 +9,127 @@
 } */
 
 .anime-card {
-  width: 250px;
+  margin: 0;
+  padding: 0;
+  width: 200px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 13rem; */
+  border-radius: 10px;
+  transition: all 0.4s;
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }
 
 .anime-card__image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  /* transform: scale(1.1); */
 }
 
-.anime-card:hover {
-  transform: scale(1.08);
-  transition: transform 0.2s ease-in-out;
+.playButton {
+  position: absolute;
+  top: 20%;
+  /* right: 10%; */
+  /* align-content: center; */
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.4s;
 }
 
-.anime-card:hover .anime-card__details {
+.circle {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: aqua;
+  display: grid;
+  place-items: center;
+  transform: scale(0.95);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid black;
+  transform: rotate(90deg);
+  margin-left: 0.2rem;
+}
+
+.playButton:hover .circle {
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.anime-card:hover .playButton {
   opacity: 1;
+  transform: translateY(0);
+}
+
+/* .anime-card:hover {
+  background-color: #111;
+} */
+
+/* .anime-card:hover .anime-card__details {
+  opacity: 1;
+} */
+
+/* .play-button__image {
+  width: 3.5rem;
+  background-color: aqua;
+  background: transparent;
+} */
+
+/* .play-button__container:hover {
+  opacity: 1;
+} */
+
+.play-button__container {
+  /* position: absolute;
+  top: 10%;
+  left: 0; */
+  /* opacity: 0; */
+  /* width: 100%; */
+  /* height: 60%; */
+  /* align-content: center;
+  text-align: center;
+  transition: opacity 0.2s ease-in-out; */
 }
 
 .anime-card__details {
-  position: absolute;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+  /* position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 40%;
   background-color: black;
-  opacity: 0;
+  opacity: 0; */
+  /* transition: opacity 0.2s ease-in-out;
+  text-align: center; */
+}
+
+.anime-card__song {
+  margin: 0;
+  padding: 0;
   color: white;
-  transition: opacity 0.2s ease-in-out;
-  text-align: center;
+}
+
+.anime-card__artist {
+  margin-top: 0.5rem;
+  padding: 0;
+  color: gray;
+}
+
+.rating {
+  /* position: absolute;
+  bottom: 0; */
 }
