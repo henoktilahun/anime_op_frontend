@@ -31,4 +31,8 @@ function getAnimeThemesByAnimeName(animeName, page) {
   ).then(checkResponse);
 }
 
+function getAnimeThemesSong(animeId) {
+  return fetch;
+}
+
 export { getAnimeThemes, getAnimeThemesById, getAnimeThemesByAnimeName };

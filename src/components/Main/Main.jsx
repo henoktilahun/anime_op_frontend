@@ -5,6 +5,7 @@ import "./Main.css";
 import Pagination from "../Pagination/Pagination";
 import { getAnimeThemesByAnimeName } from "../../utils/api";
 import { useEffect, useState } from "react";
+import MediaPlayer from "../MediaPlayer/MediaPlayer";
 
 function Main({
   animeThemes,
@@ -16,6 +17,7 @@ function Main({
   const [filteredAnimeThemes, setFilteredAnimeThemes] = useState([]);
   const [animeName, setAnimeName] = useState("");
   const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
+  const [activeMediaPlayer, setActiveMediaPlayer] = useState(false);
 
   useEffect(() => {
     setFilteredAnimeThemes(animeThemes);
@@ -30,6 +32,11 @@ function Main({
     setFilteredAnimeThemes(animeThemes);
     setCurrentFilteredPage(1);
     setCurrentFilteredPage(1);
+  };
+
+  const handlePlayClick = () => {
+    console.log("On Click");
+    setActiveMediaPlayer(true);
   };
 
   // console.log(animeThemes, "anime themes");
@@ -67,6 +74,7 @@ function Main({
             song={item.song}
             image={item.anime.images[0].link} //uses first image
             type={item.type}
+            handlePlayClick={handlePlayClick}
           />
         ))}
       </section>
@@ -74,6 +82,9 @@ function Main({
         currentPage={animeName ? currentFilteredPage : currentPage}
         setCurrnetPage={animeName ? setCurrentFilteredPage : setCurrnetPage}
       />
+      {activeMediaPlayer && (
+        <MediaPlayer activeMediaPlayer={activeMediaPlayer} />
+      )}
     </main>
   );
 }

@@ -1,8 +1,8 @@
-import logo from "../../assets/logo2.png";
+import logo from "../../assets/logo.png";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-function Header({resetSearch}) {
+function Header({ resetSearch }) {
   return (
     <header className="header">
       <Link to="/" onClick={resetSearch}>
@@ -15,9 +15,9 @@ function Header({resetSearch}) {
             Home
           </button>
         </Link>
-        <button className="header__nav-button header__shuffle-button">
+        {/* <button className="header__nav-button header__shuffle-button">
           Shuffle
-        </button>
+        </button> */}
         <button className="header__nav-button header__login-button">
           Login
         </button>

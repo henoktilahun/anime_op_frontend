@@ -1,5 +1,6 @@
 .page {
-  background-color: rgba(229, 229, 229, 1);
+  /* background-color: rgba(229, 229, 229, 1); */
+  background-color: black;
 }
 
 .page__content {

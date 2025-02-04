@@ -1,6 +1,6 @@
 .header__logo {
+  width: 140px;
   height: 80px;
-  width: 80px;
 }
 
 .header {
@@ -11,7 +11,7 @@
 .header__nav-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .header__nav-button {
@@ -20,4 +20,8 @@
   cursor: pointer;
   border-radius: 10px;
   border: 1px;
+}
+
+.header__nav-button:hover {
+  background-color: gray;
 }
