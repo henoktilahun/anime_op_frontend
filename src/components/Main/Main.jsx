@@ -3,7 +3,11 @@ import SearchBar from "../SearchBar/SearchBar";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import "./Main.css";
 import Pagination from "../Pagination/Pagination";
-import { getAnimeThemesByAnimeName } from "../../utils/api";
+import {
+  getAnimeThemesByAnimeName,
+  getAnimeThemesSongByVideoId,
+  getAnimeThemesSongByFileName,
+} from "../../utils/api";
 import { useEffect, useState } from "react";
 import MediaPlayer from "../MediaPlayer/MediaPlayer";
 
@@ -18,6 +22,7 @@ function Main({
   const [animeName, setAnimeName] = useState("");
   const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
   const [activeMediaPlayer, setActiveMediaPlayer] = useState(false);
+  const [audioSource, setAudioSource] = useState("");
 
   useEffect(() => {
     setFilteredAnimeThemes(animeThemes);
@@ -34,9 +39,15 @@ function Main({
     setCurrentFilteredPage(1);
   };
 
-  const handlePlayClick = () => {
-    console.log("On Click");
-    setActiveMediaPlayer(true);
+  const handlePlayClick = (fileName) => {
+    getAnimeThemesSongByFileName(fileName)
+      .then((res) => {
+        setActiveMediaPlayer(true);
+        setAudioSource(res.videos[0].audio.link);
+      })
+      .catch((err) => {
+        console.error("Error fetching audio source: ", err);
+      });
   };
 
   // console.log(animeThemes, "anime themes");
@@ -74,6 +85,8 @@ function Main({
             song={item.song}
             image={item.anime.images[0].link} //uses first image
             type={item.type}
+            videoId={item.animethemeentries[0]?.videos[0]?.id}
+            fileName={item.animethemeentries[0]?.videos[0]?.filename}
             handlePlayClick={handlePlayClick}
           />
         ))}
@@ -81,9 +94,13 @@ function Main({
       <Pagination
         currentPage={animeName ? currentFilteredPage : currentPage}
         setCurrnetPage={animeName ? setCurrentFilteredPage : setCurrnetPage}
+        activeMediaPlayer={activeMediaPlayer}
       />
       {activeMediaPlayer && (
-        <MediaPlayer activeMediaPlayer={activeMediaPlayer} />
+        <MediaPlayer
+          activeMediaPlayer={activeMediaPlayer}
+          audioSource={audioSource}
+        />
       )}
     </main>
   );

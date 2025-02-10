@@ -31,8 +31,22 @@ function getAnimeThemesByAnimeName(animeName, page) {
   ).then(checkResponse);
 }
 
-function getAnimeThemesSong(animeId) {
-  return fetch;
+function getAnimeThemesSongByVideoId(videoId) {
+  return fetch(
+    `${baseUrl}/video?include=animethemeentries.animetheme&filter[id]=${videoId}`
+  ).then(checkResponse);
 }
 
-export { getAnimeThemes, getAnimeThemesById, getAnimeThemesByAnimeName };
+function getAnimeThemesSongByFileName(fileName) {
+  return fetch(
+    `${baseUrl}/video?include=audio&filter[filename]=${fileName}`
+  ).then(checkResponse);
+}
+
+export {
+  getAnimeThemes,
+  getAnimeThemesById,
+  getAnimeThemesByAnimeName,
+  getAnimeThemesSongByVideoId,
+  getAnimeThemesSongByFileName,
+};

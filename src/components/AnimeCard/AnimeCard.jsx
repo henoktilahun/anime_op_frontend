@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import Rating from "../Rating/Rating";
 import playButton from "../../assets/play-button.png";
 
-function AnimeCard({ id, anime, song, image, type, handlePlayClick }) {
+function AnimeCard({
+  id,
+  anime,
+  song,
+  image,
+  videoId,
+  fileName,
+  handlePlayClick,
+}) {
   //console.log(song?.artists?.[0]?.name || "Unkown Artist");
   //console.log(id);
   const defaultRating = localStorage.getItem("sticky_rating"); //only for local testing don't put in PROD
@@ -11,6 +19,8 @@ function AnimeCard({ id, anime, song, image, type, handlePlayClick }) {
   //       event.stopPropagation();
   //       console.log("ON CLICK")
   // }
+
+  //const videoId = videoId;
 
   return (
     <div className="anime-card">
@@ -21,7 +31,7 @@ function AnimeCard({ id, anime, song, image, type, handlePlayClick }) {
           alt={`${anime.name} Cover`}
         />
       </Link>
-      <div className="playButton" onClick={handlePlayClick}>
+      <div className="playButton" onClick={() => handlePlayClick(fileName)}>
         <div className="circle">
           <div className="triangle"></div>
         </div>

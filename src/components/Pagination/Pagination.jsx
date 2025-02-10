@@ -1,8 +1,12 @@
 import "./Pagination.css";
 
-function Pagination({ currentPage, setCurrnetPage, totalPages }) {
+function Pagination({ currentPage, setCurrnetPage, activeMediaPlayer }) {
   return (
-    <div className="pagination-containor">
+    <div
+      className={`pagination-containor ${
+        activeMediaPlayer ? "pagination--with-player" : ""
+      }`}
+    >
       <div className="pagination">
         <button
           className="pagination__button"

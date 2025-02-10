@@ -7,3 +7,7 @@
   list-style-type: none;
   justify-content: center;
 }
+
+.pagination--with-player {
+  padding-bottom: 60px;
+}
