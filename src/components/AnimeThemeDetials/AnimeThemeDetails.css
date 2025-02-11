@@ -1,13 +1,17 @@
 .anime-details__container {
-  background-size: cover;
+  /* background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
+  height: 100vh;
   color: white;
+  margin-top: 20px;
 }
 
 .anime-detials__heading-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
 .anime-details__image {
@@ -15,9 +19,75 @@
 }
 
 .anime-details__title {
-  margin: 0;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+.anime-details__sub-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: end;
 }
 
 .anime-details__year {
-  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: gray;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.anime-detials__heading {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.video__image-container {
+  height: 525px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.anime-details__video {
+  width: 65%;
+  max-height: 525px;
+  border-radius: 15px;
+}
+
+.anime-details__image {
+  width: 25%;
+  height: fit-content;
+  border-radius: 15px;
+}
+
+/* Synopsis & Details */
+.anime-details__details {
+  background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.6;
+  font-size: 18px;
+  /* max-width: 800px;
+  margin-top: 20px; */
+}
+
+.anime-details__details p {
+  margin-bottom: 10px;
+}
+
+.anime-details__details p strong {
+  color: #ffcc00; /* Highlights important text */
+}
+
+/* Text for Synopsis */
+.anime-details__details p:first-child {
+  font-size: 20px;
+  font-weight: 400;
 }

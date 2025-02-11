@@ -45,22 +45,23 @@ function AnimeThemeDetails() {
   return (
     <div
       className="anime-details__container"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${imgSource})`,
-      }}
+      // style={{
+      //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${imgSource})`,
+      // }}
     >
       {preloader && <div>Loading...</div>}
       <div className="anime-detials__heading-container">
         <div className="anime-detials__heading">
-          <h3 className="anime-details__title">{songTitle}</h3>
+          <h2 className="anime-details__title">{songTitle}</h2>
           <p className="anime-details__year">{animeYear}</p>
         </div>
-        <div>
+        <div className="anime-detials__heading">
+          <h3 className="anime-details__sub-title">Rating</h3>
           <Rating defaultRating={defaultRating} />
         </div>
       </div>
 
-      <div>
+      <div className="video__image-container">
         <img
           className="anime-details__image"
           src={imgSource}
@@ -70,7 +71,13 @@ function AnimeThemeDetails() {
         {/* <video width="750" height="500" controls>
           <source src={videoSource} type="video/webm"/>
         </video> */}
-        <video controls src={videoSource} width="750" height="400"></video>
+        <video
+          className="anime-details__video"
+          controls
+          src={videoSource}
+          //width="750"
+          //height="100%"
+        ></video>
       </div>
       <div className="anime-details__details">
         <p>{animeSynopsis}</p>
