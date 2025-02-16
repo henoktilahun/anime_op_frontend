@@ -1,0 +1,121 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__content {
+  background-color: white;
+  position: relative;
+  width: 496px;
+  box-sizing: border-box;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.modal__title {
+  margin: 0;
+  padding-bottom: 24px;
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 28px 28px 0 28px;
+}
+
+.modal__close {
+  position: absolute;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+
+.modal__close_type_form {
+  background: transparent url(../../assets/close.svg) no-repeat center;
+  top: 20px;
+  right: 28px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 28px 28px 28px;
+}
+
+.modal__radio-buttons {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.modal__input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-top: 8px;
+  width: 100%;
+}
+
+.modal__label {
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.modal__legend {
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  padding-bottom: 12px;
+}
+
+.modal__label_type_radio {
+  text-align: left;
+  direction: rtl;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+label:has(input[type="radio"]:checked) {
+  color: #000000;
+}
+
+.modal__submit {
+  width: 124px;
+  height: 36px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 4px;
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.change__profile-submit {
+  width: 128px;
+  height: 36px;
+  border: none;
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
+  border-radius: 4px;
+}
+
+.change__profile-submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}

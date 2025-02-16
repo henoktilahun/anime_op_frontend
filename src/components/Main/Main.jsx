@@ -10,6 +10,7 @@ import {
 } from "../../utils/api";
 import { useEffect, useState } from "react";
 import MediaPlayer from "../MediaPlayer/MediaPlayer";
+import Preloader from "../Preloader/Preloader";
 
 function Main({
   animeThemes,
@@ -23,6 +24,7 @@ function Main({
   const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
   const [activeMediaPlayer, setActiveMediaPlayer] = useState(false);
   const [audioSource, setAudioSource] = useState("");
+  //const [preloader, setPreloader] = useState(true);
 
   useEffect(() => {
     setFilteredAnimeThemes(animeThemes);
@@ -30,13 +32,6 @@ function Main({
 
   const handleSearchInput = (animeNameInput) => {
     setAnimeName(animeNameInput.target.value);
-  };
-
-  const resetSearch = () => {
-    setAnimeName("");
-    setFilteredAnimeThemes(animeThemes);
-    setCurrentFilteredPage(1);
-    setCurrentFilteredPage(1);
   };
 
   const handlePlayClick = (fileName) => {
@@ -47,6 +42,9 @@ function Main({
       })
       .catch((err) => {
         console.error("Error fetching audio source: ", err);
+      })
+      .finally(() => {
+        setPreloader(false);
       });
   };
 
@@ -75,7 +73,7 @@ function Main({
   return (
     <main>
       <SearchBar handleSearchInput={handleSearchInput} />
-      {preloader && <div>Loading...</div>}
+      {preloader && <Preloader />}
       <section className="anime-cards">
         {filteredAnimeThemes.map((item) => (
           <AnimeCard

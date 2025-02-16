@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAnimeThemesById } from "../../utils/api";
 import Rating from "../Rating/Rating";
+import Preloader from "../Preloader/Preloader";
 
 function AnimeThemeDetails() {
   const router = useParams();
@@ -49,7 +50,7 @@ function AnimeThemeDetails() {
       //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${imgSource})`,
       // }}
     >
-      {preloader && <div>Loading...</div>}
+      {preloader && <Preloader />}
       <div className="anime-detials__heading-container">
         <div className="anime-detials__heading">
           <h2 className="anime-details__title">{songTitle}</h2>
