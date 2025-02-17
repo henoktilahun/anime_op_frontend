@@ -14,7 +14,7 @@ function AnimeCard({
 }) {
   //console.log(song?.artists?.[0]?.name || "Unkown Artist");
   //console.log(id);
-  const defaultRating = localStorage.getItem("sticky_rating"); //only for local testing don't put in PROD
+  const defaultRating = localStorage.getItem(`rating-${id}`); //only for local testing
   // const handleRatingClick = (event) => {
   //       event.stopPropagation();
   //       console.log("ON CLICK")
@@ -56,7 +56,7 @@ function AnimeCard({
             Anime: {anime.name} Type: {type}
           </p> */}
         </Link>
-        <Rating defaultRating={defaultRating} />
+        <Rating defaultRating={defaultRating} id={id} />
 
         {/* <p className="anime-card__synopsis">{anime.synopsis}</p> */}
       </div>

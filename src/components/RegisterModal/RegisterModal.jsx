@@ -16,7 +16,17 @@ function RegisterModal({
       isOpen={activeModal === "register"}
     >
       <label className="modal__label">
-        Email*{" "}
+        {" "}
+        <input
+          type="text"
+          className="modal__input"
+          id="registerName"
+          name="username"
+          placeholder="Username"
+        />
+      </label>
+      <label className="modal__label">
+        {" "}
         <input
           type="email"
           className="modal__input"
@@ -27,7 +37,7 @@ function RegisterModal({
         />
       </label>
       <label className="modal__label">
-        password*{" "}
+        {" "}
         <input
           type="password"
           className="modal__input"
@@ -38,28 +48,19 @@ function RegisterModal({
         />
       </label>
       <label className="modal__label">
-        Name{" "}
+        {" "}
         <input
-          type="text"
+          type="password"
           className="modal__input"
-          id="registerName"
-          name="name"
-          placeholder="Name"
-        />
-      </label>
-      <label className="modal__label">
-        Avatar URL{" "}
-        <input
-          type="url"
-          className="modal__input"
-          id="registerUrl"
-          name="avatar"
-          placeholder="Avatar URL"
+          id="registerPassword"
+          name="password"
+          placeholder="Password again"
+          required
         />
       </label>
       <div className="modal__login-buttons">
         <button className="modal__login-button" type="submit">
-          Next
+          Sign up
         </button>
         <button
           className="modal__register-button"
@@ -67,7 +68,7 @@ function RegisterModal({
           onClick={handleLoginClick}
         >
           {" "}
-          or Log in
+          or Sign in
         </button>
       </div>
     </ModalWithForm>

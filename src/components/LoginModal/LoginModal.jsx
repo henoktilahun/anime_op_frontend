@@ -4,14 +4,14 @@ import "./LoginModal.css";
 function LoginModal({ closeModal, activeModal, handleRegistrationClick }) {
   return (
     <ModalWithForm
-      title="Log In"
+      title="Sign In"
       buttonText="Log In"
       activeModal={activeModal}
       closeModal={closeModal}
       isOpen={activeModal === "login"}
     >
       <label className="modal__label">
-        Email{" "}
+        {" "}
         <input
           type="email"
           className="modal__input"
@@ -20,7 +20,7 @@ function LoginModal({ closeModal, activeModal, handleRegistrationClick }) {
         />
       </label>
       <label className="modal__label">
-        password{" "}
+        {" "}
         <input
           type="password"
           className="modal__input"

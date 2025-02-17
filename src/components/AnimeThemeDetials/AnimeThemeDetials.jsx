@@ -11,7 +11,7 @@ function AnimeThemeDetails() {
   const [preloader, setPreloader] = useState(true);
   const [details, setDetails] = useState({});
 
-  const defaultRating = localStorage.getItem("sticky_rating"); //only for local testing don't put in PROD
+  const defaultRating = localStorage.getItem(`rating-${id}`); //only for local testing
 
   useEffect(() => {
     if (id) {
@@ -58,7 +58,7 @@ function AnimeThemeDetails() {
         </div>
         <div className="anime-detials__heading">
           <h3 className="anime-details__sub-title">Rating</h3>
-          <Rating defaultRating={defaultRating} />
+          <Rating defaultRating={defaultRating} id={id} />
         </div>
       </div>
 
@@ -81,7 +81,8 @@ function AnimeThemeDetails() {
         ></video>
       </div>
       <div className="anime-details__details">
-        <p>{animeSynopsis}</p>
+        <p dangerouslySetInnerHTML={{ __html: animeSynopsis }} />
+        {/* <p>{animeSynopsis}</p> */}
         <p>Artist: {songArtist || "Unknown Artist"}</p>
         <p>Anime: {anime}</p>
         <p>Season: {animeSeason}</p>
