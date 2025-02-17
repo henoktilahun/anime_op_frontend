@@ -83,9 +83,16 @@ function AnimeThemeDetails() {
       <div className="anime-details__details">
         <p dangerouslySetInnerHTML={{ __html: animeSynopsis }} />
         {/* <p>{animeSynopsis}</p> */}
-        <p>Artist: {songArtist || "Unknown Artist"}</p>
-        <p>Anime: {anime}</p>
-        <p>Season: {animeSeason}</p>
+        <p>
+          <span className="anime-details__text">Artist:</span>{" "}
+          {songArtist || "Unknown Artist"}
+        </p>
+        <p>
+          <span className="anime-details__text">Anime:</span> {anime}
+        </p>
+        <p>
+          <span className="anime-details__text">Season:</span> {animeSeason}
+        </p>
       </div>
     </div>
   );

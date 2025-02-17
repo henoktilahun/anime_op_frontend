@@ -86,8 +86,7 @@
   color: #ffcc00; /* Highlights important text */
 }
 
-/* Text for Synopsis */
-.anime-details__details p:first-child {
+.anime-details__text {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: bold;
 }

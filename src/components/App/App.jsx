@@ -7,6 +7,7 @@ import { getAnimeThemes } from "../../utils/api";
 import AnimeThemeDetials from "../AnimeThemeDetials/AnimeThemeDetials";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import Footer from "../Footer/Footer";
 
 function App() {
   const [animeThemes, setAnimeThemes] = useState([]);
@@ -83,6 +84,7 @@ function App() {
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <Footer />
       </div>
       <LoginModal
         title="Log In"
