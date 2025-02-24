@@ -11,14 +11,15 @@ function AnimeThemeDetails() {
   const [preloader, setPreloader] = useState(true);
   const [details, setDetails] = useState({});
 
-  const defaultRating = localStorage.getItem(`rating-${id}`); //only for local testing
+  //get rating from local storage
+  const defaultRating = localStorage.getItem(`rating-${id}`);
 
+  //gets anime themes by id
   useEffect(() => {
     if (id) {
       getAnimeThemesById(id)
         .then((res) => {
           setDetails(res);
-          //console.log(res, "animethemedetails res");
         })
         .catch((err) => {
           console.log(err, "err");
@@ -29,7 +30,7 @@ function AnimeThemeDetails() {
     }
   }, [id]);
 
-  //console.log(details.animetheme?.anime?.images[0]?.link, "detials");
+  //gather all the anime theme details to be displayed in details page
   const imgSource = details.animetheme?.anime?.images[0]?.link;
   const songTitle = details.animetheme?.song?.title;
   const animeYear = details.animetheme?.anime?.year;
@@ -38,18 +39,9 @@ function AnimeThemeDetails() {
   const songArtist = details.animetheme?.song?.artists[0]?.name;
   const anime = details.animetheme?.anime?.name;
   const animeSeason = details.animetheme?.anime?.season;
-  //const songArtist = details.animetheme?.song?.artists?.[0]?.name
-  //const sanitizedVideoSource = encodeURI(videoSource?.trim());
-
-  //console.log(videoSource);
 
   return (
-    <div
-      className="anime-details__container"
-      // style={{
-      //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url(${imgSource})`,
-      // }}
-    >
+    <div className="anime-details__container">
       {preloader && <Preloader />}
       <div className="anime-detials__heading-container">
         <div className="anime-detials__heading">
@@ -67,22 +59,15 @@ function AnimeThemeDetails() {
           className="anime-details__image"
           src={imgSource}
           alt={`${anime} Cover`}
-          //song?.artists?.[0]?.name
         />
-        {/* <video width="750" height="500" controls>
-          <source src={videoSource} type="video/webm"/>
-        </video> */}
         <video
           className="anime-details__video"
           controls
           src={videoSource}
-          //width="750"
-          //height="100%"
         ></video>
       </div>
       <div className="anime-details__details">
         <p dangerouslySetInnerHTML={{ __html: animeSynopsis }} />
-        {/* <p>{animeSynopsis}</p> */}
         <p>
           <span className="anime-details__text">Artist:</span>{" "}
           {songArtist || "Unknown Artist"}

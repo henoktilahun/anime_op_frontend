@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({
-  closeModal,
-  activeModal,
-  handleRegistration,
-  handleLoginClick,
-}) {
+function RegisterModal({ closeModal, activeModal, handleLoginClick }) {
   return (
     <ModalWithForm
       title="Sign up"

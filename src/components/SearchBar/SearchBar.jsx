@@ -10,7 +10,6 @@ function SearchBar({ handleSearchInput }) {
           id="searchbar"
           placeholder="Search Here"
           onChange={handleSearchInput}
-          //value={email}
         />
       </div>
     </section>

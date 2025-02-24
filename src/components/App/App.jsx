@@ -38,7 +38,6 @@ function App() {
     getAnimeThemes(currentPage)
       .then((res) => {
         setAnimeThemes(res.animethemes);
-        //setAnimeThemes(res);
         setCurrnetPage(res.meta.current_page);
         console.log(res, "res");
       })
@@ -49,8 +48,6 @@ function App() {
         setPreloader(false);
       });
   }, [currentPage]);
-
-  //console.log(animeThemes, "animeThemes");
 
   return (
     <div className="page">
@@ -75,12 +72,7 @@ function App() {
           />
           <Route
             path="/:id"
-            element={
-              <AnimeThemeDetials
-                // animeThemes={animeThemes}
-                preloader={preloader}
-              />
-            }
+            element={<AnimeThemeDetials preloader={preloader} />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

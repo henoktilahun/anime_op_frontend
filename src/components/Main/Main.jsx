@@ -1,11 +1,9 @@
 import SearchBar from "../SearchBar/SearchBar";
-//import { animethemes } from "../../utils/constants";
 import AnimeCard from "../AnimeCard/AnimeCard";
 import "./Main.css";
 import Pagination from "../Pagination/Pagination";
 import {
   getAnimeThemesByAnimeName,
-  getAnimeThemesSongByVideoId,
   getAnimeThemesSongByFileName,
 } from "../../utils/api";
 import { useEffect, useState } from "react";
@@ -24,7 +22,6 @@ function Main({
   const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
   const [activeMediaPlayer, setActiveMediaPlayer] = useState(false);
   const [audioSource, setAudioSource] = useState("");
-  //const [preloader, setPreloader] = useState(true);
 
   useEffect(() => {
     setFilteredAnimeThemes(animeThemes);
@@ -34,6 +31,8 @@ function Main({
     setAnimeName(animeNameInput.target.value);
   };
 
+  // When clicked, gets anime theme song based on anime file name. Would be beter if we can pre-load the audio to play.
+  // No direct route to find song via theme id or something else easier. Will need to find a better way to retrieve the songs
   const handlePlayClick = (fileName) => {
     getAnimeThemesSongByFileName(fileName)
       .then((res) => {
@@ -48,18 +47,13 @@ function Main({
       });
   };
 
-  // console.log(animeThemes, "anime themes");
-  // console.log(filteredAnimeThemes, "Filtered animetheme");
-
+  // Gets anime themes by name. Used for search.
   useEffect(() => {
     if (animeName !== "") {
       getAnimeThemesByAnimeName(animeName, currentFilteredPage)
         .then((res) => {
           setFilteredAnimeThemes(res.animethemes);
-          //   console.log(res.meta.current_page, "currentpage meta")
           setCurrentFilteredPage(res.meta.current_page);
-          //   console.log(animeName);
-          //   console.log(res, "animehtemesbyname res");
         })
         .catch((err) => {
           console.log(err, "err");

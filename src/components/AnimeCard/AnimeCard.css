@@ -1,23 +1,11 @@
-/* .anime-cards {
-  width: 200px;
-  height: 400px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  border: 1px;
-  color: rgba(0, 0, 0, 0.3);
-} */
-
 .anime-card {
   margin: 0;
   padding: 0;
   width: 250px;
-  /* height: 250px; */
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 13rem; */
   border-radius: 10px;
   transition: all 0.4s;
   cursor: pointer;
@@ -30,14 +18,11 @@
   height: 350px;
   object-fit: cover;
   border-radius: 10px;
-  /* transform: scale(1.1); */
 }
 
 .playButton {
   position: absolute;
   top: 20%;
-  /* right: 10%; */
-  /* align-content: center; */
   transform: translateY(10px);
   opacity: 0;
   transition: all 0.4s;
@@ -73,36 +58,6 @@
   transform: translateY(0);
 }
 
-/* .anime-card:hover {
-  background-color: #111;
-} */
-
-/* .anime-card:hover .anime-card__details {
-  opacity: 1;
-} */
-
-/* .play-button__image {
-  width: 3.5rem;
-  background-color: aqua;
-  background: transparent;
-} */
-
-/* .play-button__container:hover {
-  opacity: 1;
-} */
-
-.play-button__container {
-  /* position: absolute;
-  top: 10%;
-  left: 0; */
-  /* opacity: 0; */
-  /* width: 100%; */
-  /* height: 60%; */
-  /* align-content: center;
-  text-align: center;
-  transition: opacity 0.2s ease-in-out; */
-}
-
 .anime-card__details {
   margin: 0;
   padding: 0;
@@ -113,15 +68,6 @@
   text-align: center;
   align-items: center;
   height: 100%;
-  /* position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background-color: black;
-  opacity: 0; */
-  /* transition: opacity 0.2s ease-in-out;
-  text-align: center; */
 }
 
 .anime-card__song {
@@ -138,6 +84,4 @@
 
 .rating {
   margin-bottom: 10px;
-  /* position: absolute;
-  bottom: 0; */
 }

@@ -1,7 +1,6 @@
 .searchbar__container {
   width: 100%;
   height: 300px;
-  /* background-color: aliceblue; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,11 +9,9 @@
 
 .searchbar {
   width: 800px;
-  /* justify-self: center; */
 }
 
 .searchbar-input {
-  /* width: 400px; */
   width: 100%;
   height: 60px;
   border: 1px;
@@ -25,4 +22,26 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
+}
+
+@media screen and (max-width: 846px) {
+  .searchbar-input {
+    display: flex;
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .searchbar-input {
+    display: flex;
+    width: 315px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .searchbar-input {
+    width: 100%;
+  }
 }

@@ -24,8 +24,6 @@ function Pagination({ currentPage, setCurrnetPage, activeMediaPlayer }) {
       </div>
       <div>
         <p>Page: {currentPage}</p>
-        {/* <p>of</p>
-            <p>{totalPages}</p> */}
       </div>
     </div>
   );

@@ -30,7 +30,6 @@ function Rating({ defaultRating, id }) {
             type="button"
             key={index}
             className={
-              //   index <= (rating || hoverRating) ? "rating-on" : "rating-off"
               index <= (hoverRating > 0 ? hoverRating : rating)
                 ? "rating-on"
                 : "rating-off"
