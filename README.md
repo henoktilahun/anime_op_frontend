@@ -1,8 +1,12 @@
-# React + Vite
+# Rate Anime Themes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web application called "Rate Anime Themes". The web application has a collection of anime themes (opening/ending songs) that users can listen to and rate accordingly. 
 
-Currently, two official plugins are available:
+- FrontEnd: [stage-1-frontend](https://github.com/henoktilahun/anime_op_frontend/tree/stage-1-frontend-api)
+  
+Feel free to head to [Rate Anime Themes](http://rateanimethemes.com/) to check out the application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### TODO:
+- Preload audio source for faster playback
+- Load limited anime themes at a time
+- Use lazy loading for images?
