@@ -1,0 +1,39 @@
+.modal__login-buttons {
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.modal__login-button {
+  width: 130px;
+  height: 60px;
+  border: none;
+  background-color: rgba(140, 172, 229, 1);
+  color: #fff;
+  border-radius: 100px;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+}
+
+.modal__login-button:hover {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.modal__register-button {
+  border: none;
+  background: none;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.modal__register-button:hover {
+  color: rgba(0, 0, 0, 1);
+}

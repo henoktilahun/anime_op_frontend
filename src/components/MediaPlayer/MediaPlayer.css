@@ -1,0 +1,13 @@
+.media-player {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: -100px;
+  transition: bottom 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.media-player__active {
+  bottom: 0;
+}
